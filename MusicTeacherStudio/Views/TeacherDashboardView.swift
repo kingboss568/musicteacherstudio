@@ -81,7 +81,7 @@ struct TeacherDashboardView: View {
                 NavigationLink { PaymentTrackerView() }   label: { Label("收費追蹤", systemImage: "creditcard") }
             }
         }
-        .navigationTitle("MusicTeacherStudio")
+        .navigationTitle("樂課管家")
         .sheet(isPresented: $showStudentEditor) {
             NavigationStack { StudentEditorView() }
         }

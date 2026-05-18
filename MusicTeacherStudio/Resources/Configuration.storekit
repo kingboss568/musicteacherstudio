@@ -8,8 +8,8 @@
       "internalID" : "lifetime001",
       "localizations" : [
         {
-          "description" : "一次買斷，永久解鎖音律手帳 Pro 全部功能。",
-          "displayName" : "音律手帳 Pro 終身版",
+          "description" : "一次買斷，永久解鎖樂課管家 Pro 全部功能。",
+          "displayName" : "樂課管家 Pro 終身版",
           "locale" : "zh_TW"
         },
         {
@@ -33,7 +33,7 @@
     {
       "id" : "21567400",
       "localizations" : [
-        { "description" : "音律手帳 Pro 訂閱方案", "displayName" : "音律手帳 Pro", "locale" : "zh_TW" }
+        { "description" : "樂課管家 Pro 訂閱方案", "displayName" : "樂課管家 Pro", "locale" : "zh_TW" }
       ],
       "name" : "Music Teacher Studio Pro",
       "subscriptions" : [
@@ -51,7 +51,7 @@
           },
           "localizations" : [
             {
-              "description" : "音律手帳 Pro 月訂閱，含 7 天免費試用。",
+              "description" : "樂課管家 Pro 月訂閱，含 7 天免費試用。",
               "displayName" : "Pro 月訂閱",
               "locale" : "zh_TW"
             }
@@ -72,7 +72,7 @@
           "introductoryOffer" : null,
           "localizations" : [
             {
-              "description" : "音律手帳 Pro 年訂閱，比月訂閱省 31%。",
+              "description" : "樂課管家 Pro 年訂閱，比月訂閱省 31%。",
               "displayName" : "Pro 年訂閱",
               "locale" : "zh_TW"
             }

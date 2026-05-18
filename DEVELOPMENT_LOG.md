@@ -314,7 +314,7 @@ $ find MusicTeacherStudio MusicTeacherStudioTests -name "*.swift" | wc -l
 
 | 項目 | 值 |
 |---|---|
-| 中文品牌 | 音律手帳 |
+| 中文品牌 | 樂課管家 |
 | 英文 | MusicTeacher Studio |
 | Tagline | 30 秒記錄，30 年成長 |
 | 主色 | 深靛紫 #4F28DA → #6D28D9 |
@@ -408,5 +408,4 @@ $ find MusicTeacherStudio MusicTeacherStudioTests -name "*.swift" | wc -l
 7. **送審 v2.0**：第一次上架建議走 Phased Release
 
 紀錄人：Claude Code（@iOS-Dev 託管）
-版本：v2.0「音律手帳」可上架級升級包
-
+版本：v2.0「樂課管家」可上架級升級包

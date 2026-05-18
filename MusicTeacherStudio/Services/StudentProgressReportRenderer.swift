@@ -35,7 +35,7 @@ struct StudentProgressReportRenderer {
                 .font: UIFont.systemFont(ofSize: 13, weight: .semibold),
                 .foregroundColor: UIColor.white
             ]
-            let studio = teacherStudioName ?? "音律手帳 · MusicTeacher Studio"
+            let studio = teacherStudioName ?? "樂課管家 · MusicTeacher Studio"
             NSAttributedString(string: studio, attributes: barAttrs)
                 .draw(in: CGRect(x: 40, y: 10, width: pageSize.width - 80, height: 20))
 
@@ -129,7 +129,7 @@ struct StudentProgressReportRenderer {
                     .font: UIFont.systemFont(ofSize: 56, weight: .heavy),
                     .foregroundColor: UIColor.systemGray.withAlphaComponent(0.10)
                 ]
-                let wm = NSAttributedString(string: "音律手帳 試用版", attributes: wmAttrs)
+                let wm = NSAttributedString(string: "樂課管家 試用版", attributes: wmAttrs)
                 let size = wm.size()
                 ctx.cgContext.saveGState()
                 ctx.cgContext.translateBy(x: pageSize.width / 2, y: pageSize.height / 2)

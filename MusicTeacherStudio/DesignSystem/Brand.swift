@@ -1,6 +1,6 @@
 import SwiftUI
 
-/// 音律手帳 — Brand design tokens.
+/// 樂課管家 — Brand design tokens.
 ///
 /// 品牌色定位：
 /// - Primary（深靛紫 #4F46E5 → #6D28D9）：專業、信任、音樂感
@@ -98,9 +98,9 @@ enum Brand {
     // MARK: - Strings (i18n later via Localizable)
 
     enum Strings {
-        static let productName        = "音律手帳"
+        static let productName        = "樂課管家"
         static let productNameEnglish = "MusicTeacher Studio"
         static let tagline            = "30 秒記錄，30 年成長"
-        static let proName            = "音律手帳 Pro"
+        static let proName            = "樂課管家 Pro"
     }
 }

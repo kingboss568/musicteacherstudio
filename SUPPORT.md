@@ -2,15 +2,15 @@
 permalink: /support/
 ---
 
-# 音律手帳・支援
+# 樂課管家・支援
 
-感謝使用音律手帳。若你需要協助，請寄信到：
+感謝使用樂課管家。若你需要協助，請寄信到：
 
 Email: jushiung@gmail.com
 
 請在信中附上：
 
-- App 名稱：音律手帳
+- App 名稱：樂課管家
 - iPhone / iPad 型號
 - iOS / iPadOS 版本
 - 問題發生的畫面

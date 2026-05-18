@@ -5,7 +5,7 @@
 | 欄位 | 值 |
 |---|---|
 | Bundle ID | `com.jiang.musicteacherstudio` |
-| App 名稱 | 音律手帳 - 音樂老師課程管理 |
+| App 名稱 | 樂課管家 - 音樂老師課程管理 |
 | 副標題 | 30 秒課後紀錄、收費追蹤、AI 家長草稿 |
 | 主要類別 | 教育 |
 | 次要類別 | 生產力 |
@@ -20,9 +20,9 @@
 
 | Product ID | 類型 | 顯示名稱 | 建議價格 |
 |---|---|---|---|
-| `studio.pro.monthly` | Auto-renewable Subscription | 音律手帳 Pro 月訂閱 | NT$120 |
-| `studio.pro.yearly` | Auto-renewable Subscription | 音律手帳 Pro 年訂閱 | NT$990 |
-| `studio.pro.lifetime` | Non-Consumable | 音律手帳 Pro 終身版 | NT$2,490 |
+| `studio.pro.monthly` | Auto-renewable Subscription | 樂課管家 Pro 月訂閱 | NT$120 |
+| `studio.pro.yearly` | Auto-renewable Subscription | 樂課管家 Pro 年訂閱 | NT$990 |
+| `studio.pro.lifetime` | Non-Consumable | 樂課管家 Pro 終身版 | NT$2,490 |
 
 訂閱群組：`Music Teacher Studio Pro`  
 月訂閱：7 天免費試用。  
@@ -32,7 +32,7 @@
 ## App Store 描述（繁中）
 
 ```text
-音律手帳是為私人音樂老師打造的課程管理 App。
+樂課管家是為私人音樂老師打造的課程管理 App。
 
 它把學生、課表、出席、課費、作業、錄音回饋、學習報表與家長訊息草稿放在同一個離線優先的工作台，讓老師在 30 秒內完成一堂課後紀錄，把行政時間還給教學。
 

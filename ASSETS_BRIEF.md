@@ -5,7 +5,7 @@
 ## 品牌風格基準（每個 prompt 都會帶這段）
 
 ```
-Brand: "音律手帳 / MusicTeacher Studio"
+Brand: "樂課管家 / MusicTeacher Studio"
 Style: minimal, warm, premium, paper-textured, soft gradients
 Palette:
   - Deep indigo #4F28DA / #6D28D9 (primary)
@@ -144,7 +144,7 @@ No text, no logos. Minimal premium aesthetic, 2026.
 1290x2796 portrait. A muted indigo gradient background with paper texture.
 Top 25%: bold Traditional Chinese marketing headline (placeholder).
 Middle 65%: large empty space (will paste the app simulator screenshot here in Figma).
-Bottom 10%: 音律手帳 logo placeholder.
+Bottom 10%: 樂課管家 logo placeholder.
 ```
 
 ### 6 個 Title 文案

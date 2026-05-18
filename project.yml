@@ -27,7 +27,7 @@ targets:
       properties:
         UILaunchScreen:
           UIColorName: ""
-        CFBundleDisplayName: 音律手帳
+        CFBundleDisplayName: 樂課管家
         ITSAppUsesNonExemptEncryption: false
         UISupportedInterfaceOrientations:
           - UIInterfaceOrientationPortrait
