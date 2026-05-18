@@ -1,0 +1,90 @@
+{
+  "identifier" : "MTS-PRO-CONFIG",
+  "nonRenewingSubscriptions" : [],
+  "products" : [
+    {
+      "displayPrice" : "2490",
+      "familyShareable" : false,
+      "internalID" : "lifetime001",
+      "localizations" : [
+        {
+          "description" : "一次買斷，永久解鎖音律手帳 Pro 全部功能。",
+          "displayName" : "音律手帳 Pro 終身版",
+          "locale" : "zh_TW"
+        },
+        {
+          "description" : "One-time purchase. Unlock MusicTeacher Studio Pro forever.",
+          "displayName" : "MusicTeacher Studio Pro Lifetime",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "studio.pro.lifetime",
+      "referenceName" : "Pro Lifetime",
+      "type" : "NonConsumable"
+    }
+  ],
+  "settings" : {
+    "_failTransactionsEnabled" : false,
+    "_locale" : "zh_TW",
+    "_storefront" : "TWN",
+    "_storeKitErrors" : []
+  },
+  "subscriptionGroups" : [
+    {
+      "id" : "21567400",
+      "localizations" : [
+        { "description" : "音律手帳 Pro 訂閱方案", "displayName" : "音律手帳 Pro", "locale" : "zh_TW" }
+      ],
+      "name" : "Music Teacher Studio Pro",
+      "subscriptions" : [
+        {
+          "adHocOffers" : [],
+          "codeOffers" : [],
+          "displayPrice" : "120",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "monthly001",
+          "introductoryOffer" : {
+            "internalID" : "intro001",
+            "paymentMode" : "free",
+            "subscriptionPeriod" : "P1W"
+          },
+          "localizations" : [
+            {
+              "description" : "音律手帳 Pro 月訂閱，含 7 天免費試用。",
+              "displayName" : "Pro 月訂閱",
+              "locale" : "zh_TW"
+            }
+          ],
+          "productID" : "studio.pro.monthly",
+          "recurringSubscriptionPeriod" : "P1M",
+          "referenceName" : "Pro Monthly",
+          "subscriptionGroupID" : "21567400",
+          "type" : "RecurringSubscription"
+        },
+        {
+          "adHocOffers" : [],
+          "codeOffers" : [],
+          "displayPrice" : "990",
+          "familyShareable" : false,
+          "groupNumber" : 2,
+          "internalID" : "yearly001",
+          "introductoryOffer" : null,
+          "localizations" : [
+            {
+              "description" : "音律手帳 Pro 年訂閱，比月訂閱省 31%。",
+              "displayName" : "Pro 年訂閱",
+              "locale" : "zh_TW"
+            }
+          ],
+          "productID" : "studio.pro.yearly",
+          "recurringSubscriptionPeriod" : "P1Y",
+          "referenceName" : "Pro Yearly",
+          "subscriptionGroupID" : "21567400",
+          "type" : "RecurringSubscription"
+        }
+      ]
+    }
+  ],
+  "version" : { "major" : 4, "minor" : 0 }
+}

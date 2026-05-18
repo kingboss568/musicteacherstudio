@@ -1,0 +1,736 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		026F795ED1E4F8D4F4A35F51 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FE25D74F16D165E45BA2DB /* DashboardView.swift */; };
+		13128A45D85C4BBDE468A509 /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8768B2A36976A2441638C080 /* Student.swift */; };
+		13D7CEF9E2E2C7936D78588C /* MockAIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB05114881BA1993A3611BC /* MockAIProvider.swift */; };
+		1468765006E7EE8A1BD1723F /* AIPromptTemplateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA638475175DCDE12DB17D34 /* AIPromptTemplateTests.swift */; };
+		154E1DAC5B41983DAE3505B1 /* LessonSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B007DB1110415FBCD93147 /* LessonSummaryView.swift */; };
+		1E5459FB25C09946BEC2C4CB /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E550AE6502C38F2B39426B7 /* SettingsView.swift */; };
+		28CBCD559B6BC7F2F81A672E /* PaymentBalanceServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59C2C9551311BA140A122C2 /* PaymentBalanceServiceTests.swift */; };
+		29C490881CE13365A82B1710 /* StudentEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB239A14F40011E4927479CC /* StudentEditorView.swift */; };
+		314885E2C6067BC061702950 /* StudentDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406335ADA442E902B69EEB0C /* StudentDetailView.swift */; };
+		3A936E8A907DEEA8FDB9990F /* AIPromptTemplates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474EE6AB48D2AF2ED925B547 /* AIPromptTemplates.swift */; };
+		3E11B9F40960FF49BE50B1EB /* FileStorageUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080F2383CCB59E4C8237F0CB /* FileStorageUtility.swift */; };
+		3F68E586E8B6850433952473 /* AIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDF03B187433B3F4BCF9847 /* AIProvider.swift */; };
+		47E4A726B91784452715435B /* ParentMessageDraftAI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745B1F2475713A307CB190CB /* ParentMessageDraftAI.swift */; };
+		4AD01D7F88DB3ED881C63F8A /* CSVExportService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448D3C94418730C9BCE72620 /* CSVExportService.swift */; };
+		5466577EC9FB3A4812A7A4F1 /* Entitlement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F158E24ED113648C66971B /* Entitlement.swift */; };
+		5B16684D86DE837E5118DA5D /* Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FF049A154270EBC98A9FBF /* Components.swift */; };
+		6BFB42930FE7E22DF35EF582 /* AssignmentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE1600CF59415C0EF505CC7 /* AssignmentService.swift */; };
+		6F3CC45DC069E898D94B43C3 /* ParentMessagePreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12AE29B520D00B854B88D5C2 /* ParentMessagePreviewView.swift */; };
+		7536191DF082B01C9C47B4C4 /* LessonSchedulerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F79B554CEDFEE72718CE3C /* LessonSchedulerTests.swift */; };
+		798D5F53F7DCB7AAE6223C75 /* AttendanceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB00B72AAB1DCB53227A9F37 /* AttendanceService.swift */; };
+		849F2B3E8BB40F88A48AAD1F /* PracticeRecording.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABDC9314BBB5F52D089E30B /* PracticeRecording.swift */; };
+		856C07837B3211EF08D1662F /* DateFormatterUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7451E9ACCAFA65E8CE71FAE4 /* DateFormatterUtility.swift */; };
+		85DADEDE14E8E6B8A77AE33E /* PaymentBalanceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B0B0C06615885DBA20A2FD /* PaymentBalanceService.swift */; };
+		913D8CC2C60A761CBD779A0E /* StudentProgressReportRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0383B52191E3575BA59D0DF2 /* StudentProgressReportRenderer.swift */; };
+		9475EA17A1FF6CE078A35765 /* PaymentRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D073BA5E635F0434CE5252D /* PaymentRecord.swift */; };
+		94A05F862C8A6FAE1154954C /* AssignmentStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C2832EBCA64952B2B8ECF6 /* AssignmentStatus.swift */; };
+		95A5733FFE8A0FF35408701F /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49B3017C064336B685014C2 /* RootView.swift */; };
+		A690BBC2A2E0A412EB7E6200 /* StoreKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292A443852FFC97DF0520D69 /* StoreKitManager.swift */; };
+		A79CC7BF767BFC4C1736ADCF /* Brand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411FF046CB720B403202BB7A /* Brand.swift */; };
+		A88311AD68F35022C6CBA9CC /* AssignmentServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0A72A4668DDF42D21FEE00 /* AssignmentServiceTests.swift */; };
+		A95D53D8E24216690AF9496C /* PaymentTrackerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F20E5DE2DE235C552908855 /* PaymentTrackerView.swift */; };
+		AAC3525D604BC1065CDD3DE7 /* LessonStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A584DE25A3C58DDE294815B /* LessonStatus.swift */; };
+		AB93BE64091E5A53380393AD /* StudentProgressReportRendererTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68A1881094263AADECA958EF /* StudentProgressReportRendererTests.swift */; };
+		AC6818D26472436A56D965E3 /* StudentListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8E7E544ACA65C7C2F795C3 /* StudentListView.swift */; };
+		AD499701458099CC0C12196C /* BatchMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A84A24A86C592A806EE6EE0 /* BatchMessageView.swift */; };
+		AFC2E526CD71CD1E0F5BEEDE /* LessonEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 255A1372A3C118C088178CC9 /* LessonEditorView.swift */; };
+		C2225764EB5A8D8900E06185 /* MusicTeacherStudioApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA0F3C39F856E650F5A9386 /* MusicTeacherStudioApp.swift */; };
+		C592006E7A6DD785C80B783C /* RecurringLessonTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61170608D15CED8D6304A71D /* RecurringLessonTemplate.swift */; };
+		C8C102018E104EA2B55D50EE /* Configuration.storekit in Resources */ = {isa = PBXBuildFile; fileRef = B13F18C33555952D91B563C5 /* Configuration.storekit */; };
+		C901CC274B7C128B5ABC7A8D /* Assignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945E10CEA7253A431A5D089D /* Assignment.swift */; };
+		CDFB75F1F4551E862BE53CAE /* Lesson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACC4A4F21837CC86DF20B37 /* Lesson.swift */; };
+		D2D9416461B77447E1188CB5 /* AttendanceServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007FA002775257D2F6B198C4 /* AttendanceServiceTests.swift */; };
+		D4C35409546F588B5563D935 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD64CE92102A0899D5C0DB5F /* OnboardingView.swift */; };
+		D70E6901420D96ABE14C9E55 /* TunerMetronomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89115B1017DFA425FA1684AB /* TunerMetronomeView.swift */; };
+		D832FBCEE446368E7AE2E6F2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 94419E0B4A80EB3515CAB257 /* Assets.xcassets */; };
+		E2210ED8F0A9E85773184DDA /* PreviewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A271B2FD733A76C9646344 /* PreviewData.swift */; };
+		E40C6DADAA9456F50762B97B /* LessonCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA0B74F385A8218D35809D7 /* LessonCalendarView.swift */; };
+		E92F7BA82D747A99C3631151 /* AnalyticsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F790A69DC8C028364031E33A /* AnalyticsService.swift */; };
+		EB684A9435AED71A97FC9409 /* LessonNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52F20EAC36B8B64C781BBD7 /* LessonNoteView.swift */; };
+		EF20361794D6A4F485D45301 /* PaywallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC5900B922571CC2BD64CCA /* PaywallView.swift */; };
+		F32A5BC63F9911D7F95D3A55 /* AssignmentEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 979C4F3B454119A32ABBDF72 /* AssignmentEditorView.swift */; };
+		F3A2429D4CB59E4CC07F570C /* LessonSummaryAI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F1EDDC11145F1876B61B7C /* LessonSummaryAI.swift */; };
+		F3C8B6111411916D2A5D04EF /* PracticeRecordingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8617A40631F778DFA1FB99AC /* PracticeRecordingService.swift */; };
+		F7C1FDD6FE55672A425B67D6 /* MoneyFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFC042E516322871BB6298F /* MoneyFormatter.swift */; };
+		FE885403E0D8982BBB4D499B /* LessonScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC3792522E6119274B594B2 /* LessonScheduler.swift */; };
+		FFC7925595AB0A92AB20E6DE /* TeacherDashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E4E93CCF7BD3E92EC7CE51D /* TeacherDashboardView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8E12EF346E491F4A78F4A85C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 80F9CFED6B2F8CC6D17454C1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0DCA8F853332115B17D0593D;
+			remoteInfo = MusicTeacherStudio;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		007FA002775257D2F6B198C4 /* AttendanceServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceServiceTests.swift; sourceTree = "<group>"; };
+		0383B52191E3575BA59D0DF2 /* StudentProgressReportRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentProgressReportRenderer.swift; sourceTree = "<group>"; };
+		04F1EDDC11145F1876B61B7C /* LessonSummaryAI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonSummaryAI.swift; sourceTree = "<group>"; };
+		06FE25D74F16D165E45BA2DB /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
+		06FF049A154270EBC98A9FBF /* Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Components.swift; sourceTree = "<group>"; };
+		080F2383CCB59E4C8237F0CB /* FileStorageUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileStorageUtility.swift; sourceTree = "<group>"; };
+		0A84A24A86C592A806EE6EE0 /* BatchMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatchMessageView.swift; sourceTree = "<group>"; };
+		12AE29B520D00B854B88D5C2 /* ParentMessagePreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentMessagePreviewView.swift; sourceTree = "<group>"; };
+		1F0A72A4668DDF42D21FEE00 /* AssignmentServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentServiceTests.swift; sourceTree = "<group>"; };
+		255A1372A3C118C088178CC9 /* LessonEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonEditorView.swift; sourceTree = "<group>"; };
+		292A443852FFC97DF0520D69 /* StoreKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreKitManager.swift; sourceTree = "<group>"; };
+		2E550AE6502C38F2B39426B7 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		3A584DE25A3C58DDE294815B /* LessonStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonStatus.swift; sourceTree = "<group>"; };
+		3ABDC9314BBB5F52D089E30B /* PracticeRecording.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeRecording.swift; sourceTree = "<group>"; };
+		406335ADA442E902B69EEB0C /* StudentDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentDetailView.swift; sourceTree = "<group>"; };
+		411FF046CB720B403202BB7A /* Brand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Brand.swift; sourceTree = "<group>"; };
+		448D3C94418730C9BCE72620 /* CSVExportService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSVExportService.swift; sourceTree = "<group>"; };
+		44B007DB1110415FBCD93147 /* LessonSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonSummaryView.swift; sourceTree = "<group>"; };
+		474EE6AB48D2AF2ED925B547 /* AIPromptTemplates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIPromptTemplates.swift; sourceTree = "<group>"; };
+		58C2832EBCA64952B2B8ECF6 /* AssignmentStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentStatus.swift; sourceTree = "<group>"; };
+		5D073BA5E635F0434CE5252D /* PaymentRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentRecord.swift; sourceTree = "<group>"; };
+		5F20E5DE2DE235C552908855 /* PaymentTrackerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentTrackerView.swift; sourceTree = "<group>"; };
+		61170608D15CED8D6304A71D /* RecurringLessonTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecurringLessonTemplate.swift; sourceTree = "<group>"; };
+		68A1881094263AADECA958EF /* StudentProgressReportRendererTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentProgressReportRendererTests.swift; sourceTree = "<group>"; };
+		6CA0F3C39F856E650F5A9386 /* MusicTeacherStudioApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicTeacherStudioApp.swift; sourceTree = "<group>"; };
+		7451E9ACCAFA65E8CE71FAE4 /* DateFormatterUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterUtility.swift; sourceTree = "<group>"; };
+		745B1F2475713A307CB190CB /* ParentMessageDraftAI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentMessageDraftAI.swift; sourceTree = "<group>"; };
+		74F79B554CEDFEE72718CE3C /* LessonSchedulerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonSchedulerTests.swift; sourceTree = "<group>"; };
+		7FFC042E516322871BB6298F /* MoneyFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyFormatter.swift; sourceTree = "<group>"; };
+		80A271B2FD733A76C9646344 /* PreviewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewData.swift; sourceTree = "<group>"; };
+		82F158E24ED113648C66971B /* Entitlement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entitlement.swift; sourceTree = "<group>"; };
+		8617A40631F778DFA1FB99AC /* PracticeRecordingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeRecordingService.swift; sourceTree = "<group>"; };
+		8768B2A36976A2441638C080 /* Student.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
+		87C55ED51C4176C30AA4B53F /* MusicTeacherStudioTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = MusicTeacherStudioTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		89115B1017DFA425FA1684AB /* TunerMetronomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TunerMetronomeView.swift; sourceTree = "<group>"; };
+		94419E0B4A80EB3515CAB257 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		945E10CEA7253A431A5D089D /* Assignment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assignment.swift; sourceTree = "<group>"; };
+		979C4F3B454119A32ABBDF72 /* AssignmentEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentEditorView.swift; sourceTree = "<group>"; };
+		9ACC4A4F21837CC86DF20B37 /* Lesson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lesson.swift; sourceTree = "<group>"; };
+		9CC3792522E6119274B594B2 /* LessonScheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonScheduler.swift; sourceTree = "<group>"; };
+		9E4E93CCF7BD3E92EC7CE51D /* TeacherDashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherDashboardView.swift; sourceTree = "<group>"; };
+		A49B3017C064336B685014C2 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		ADA0B74F385A8218D35809D7 /* LessonCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonCalendarView.swift; sourceTree = "<group>"; };
+		B13F18C33555952D91B563C5 /* Configuration.storekit */ = {isa = PBXFileReference; path = Configuration.storekit; sourceTree = "<group>"; };
+		B52F20EAC36B8B64C781BBD7 /* LessonNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonNoteView.swift; sourceTree = "<group>"; };
+		BB00B72AAB1DCB53227A9F37 /* AttendanceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceService.swift; sourceTree = "<group>"; };
+		BB239A14F40011E4927479CC /* StudentEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentEditorView.swift; sourceTree = "<group>"; };
+		BD64CE92102A0899D5C0DB5F /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		BF8E7E544ACA65C7C2F795C3 /* StudentListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentListView.swift; sourceTree = "<group>"; };
+		CA638475175DCDE12DB17D34 /* AIPromptTemplateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIPromptTemplateTests.swift; sourceTree = "<group>"; };
+		CBB05114881BA1993A3611BC /* MockAIProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAIProvider.swift; sourceTree = "<group>"; };
+		DDDF03B187433B3F4BCF9847 /* AIProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIProvider.swift; sourceTree = "<group>"; };
+		DEC9464F87FCF1B112D0715E /* MusicTeacherStudio.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = MusicTeacherStudio.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E0B0B0C06615885DBA20A2FD /* PaymentBalanceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentBalanceService.swift; sourceTree = "<group>"; };
+		E59C2C9551311BA140A122C2 /* PaymentBalanceServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentBalanceServiceTests.swift; sourceTree = "<group>"; };
+		EBE1600CF59415C0EF505CC7 /* AssignmentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentService.swift; sourceTree = "<group>"; };
+		F790A69DC8C028364031E33A /* AnalyticsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsService.swift; sourceTree = "<group>"; };
+		FCC5900B922571CC2BD64CCA /* PaywallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		016E8718C188812B0D05C8B2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DEC9464F87FCF1B112D0715E /* MusicTeacherStudio.app */,
+				87C55ED51C4176C30AA4B53F /* MusicTeacherStudioTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		056D94F218F6A26A43B9750D /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				87F46BD3CB09CC57BA08FA67 /* Dashboard */,
+				C776CC7436AA9D674E70AAF0 /* Onboarding */,
+				B8C00BC2073147A6BAE087F7 /* Sharing */,
+				447C86AB9BF9DDA796EE6625 /* Sync */,
+				51D8F3E6ADC21189C751E101 /* Tools */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		06A8B2FE11B1373B7B7ECB60 /* AI */ = {
+			isa = PBXGroup;
+			children = (
+				474EE6AB48D2AF2ED925B547 /* AIPromptTemplates.swift */,
+				DDDF03B187433B3F4BCF9847 /* AIProvider.swift */,
+				04F1EDDC11145F1876B61B7C /* LessonSummaryAI.swift */,
+				CBB05114881BA1993A3611BC /* MockAIProvider.swift */,
+				745B1F2475713A307CB190CB /* ParentMessageDraftAI.swift */,
+			);
+			path = AI;
+			sourceTree = "<group>";
+		};
+		1EF457106EA4DF48918C829D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				945E10CEA7253A431A5D089D /* Assignment.swift */,
+				58C2832EBCA64952B2B8ECF6 /* AssignmentStatus.swift */,
+				9ACC4A4F21837CC86DF20B37 /* Lesson.swift */,
+				3A584DE25A3C58DDE294815B /* LessonStatus.swift */,
+				5D073BA5E635F0434CE5252D /* PaymentRecord.swift */,
+				3ABDC9314BBB5F52D089E30B /* PracticeRecording.swift */,
+				61170608D15CED8D6304A71D /* RecurringLessonTemplate.swift */,
+				8768B2A36976A2441638C080 /* Student.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		2A912A63937564D827ABA98C /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				EBE1600CF59415C0EF505CC7 /* AssignmentService.swift */,
+				BB00B72AAB1DCB53227A9F37 /* AttendanceService.swift */,
+				9CC3792522E6119274B594B2 /* LessonScheduler.swift */,
+				E0B0B0C06615885DBA20A2FD /* PaymentBalanceService.swift */,
+				8617A40631F778DFA1FB99AC /* PracticeRecordingService.swift */,
+				0383B52191E3575BA59D0DF2 /* StudentProgressReportRenderer.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		4155BDE3E05AF52AC766973F /* MusicTeacherStudio */ = {
+			isa = PBXGroup;
+			children = (
+				06A8B2FE11B1373B7B7ECB60 /* AI */,
+				56EF2B84E68F2DC4800D04E6 /* App */,
+				53B65E2C78A1AC197388F05A /* DesignSystem */,
+				056D94F218F6A26A43B9750D /* Features */,
+				1EF457106EA4DF48918C829D /* Models */,
+				6FD83C35A11BAC7E7B10867E /* Paywall */,
+				53A72FC7B0312B6A3F7667C8 /* Resources */,
+				2A912A63937564D827ABA98C /* Services */,
+				E2F16416AD4E569E87C3A540 /* Utilities */,
+				F221A6E5C867A295D4791CB8 /* Views */,
+			);
+			path = MusicTeacherStudio;
+			sourceTree = "<group>";
+		};
+		447C86AB9BF9DDA796EE6625 /* Sync */ = {
+			isa = PBXGroup;
+			children = (
+				448D3C94418730C9BCE72620 /* CSVExportService.swift */,
+			);
+			path = Sync;
+			sourceTree = "<group>";
+		};
+		4AB8FFB88603D73D61BFD558 /* MusicTeacherStudioTests */ = {
+			isa = PBXGroup;
+			children = (
+				CA638475175DCDE12DB17D34 /* AIPromptTemplateTests.swift */,
+				1F0A72A4668DDF42D21FEE00 /* AssignmentServiceTests.swift */,
+				007FA002775257D2F6B198C4 /* AttendanceServiceTests.swift */,
+				74F79B554CEDFEE72718CE3C /* LessonSchedulerTests.swift */,
+				E59C2C9551311BA140A122C2 /* PaymentBalanceServiceTests.swift */,
+				68A1881094263AADECA958EF /* StudentProgressReportRendererTests.swift */,
+			);
+			path = MusicTeacherStudioTests;
+			sourceTree = "<group>";
+		};
+		51D8F3E6ADC21189C751E101 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				89115B1017DFA425FA1684AB /* TunerMetronomeView.swift */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		53A72FC7B0312B6A3F7667C8 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				94419E0B4A80EB3515CAB257 /* Assets.xcassets */,
+				B13F18C33555952D91B563C5 /* Configuration.storekit */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		53B65E2C78A1AC197388F05A /* DesignSystem */ = {
+			isa = PBXGroup;
+			children = (
+				411FF046CB720B403202BB7A /* Brand.swift */,
+				06FF049A154270EBC98A9FBF /* Components.swift */,
+			);
+			path = DesignSystem;
+			sourceTree = "<group>";
+		};
+		56EF2B84E68F2DC4800D04E6 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				6CA0F3C39F856E650F5A9386 /* MusicTeacherStudioApp.swift */,
+				A49B3017C064336B685014C2 /* RootView.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		6FD83C35A11BAC7E7B10867E /* Paywall */ = {
+			isa = PBXGroup;
+			children = (
+				82F158E24ED113648C66971B /* Entitlement.swift */,
+				FCC5900B922571CC2BD64CCA /* PaywallView.swift */,
+				292A443852FFC97DF0520D69 /* StoreKitManager.swift */,
+			);
+			path = Paywall;
+			sourceTree = "<group>";
+		};
+		87F46BD3CB09CC57BA08FA67 /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				F790A69DC8C028364031E33A /* AnalyticsService.swift */,
+				06FE25D74F16D165E45BA2DB /* DashboardView.swift */,
+			);
+			path = Dashboard;
+			sourceTree = "<group>";
+		};
+		B8C00BC2073147A6BAE087F7 /* Sharing */ = {
+			isa = PBXGroup;
+			children = (
+				0A84A24A86C592A806EE6EE0 /* BatchMessageView.swift */,
+			);
+			path = Sharing;
+			sourceTree = "<group>";
+		};
+		C776CC7436AA9D674E70AAF0 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				BD64CE92102A0899D5C0DB5F /* OnboardingView.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		E2F16416AD4E569E87C3A540 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				7451E9ACCAFA65E8CE71FAE4 /* DateFormatterUtility.swift */,
+				080F2383CCB59E4C8237F0CB /* FileStorageUtility.swift */,
+				7FFC042E516322871BB6298F /* MoneyFormatter.swift */,
+				80A271B2FD733A76C9646344 /* PreviewData.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		E4F35EF13D26124D62011DB9 = {
+			isa = PBXGroup;
+			children = (
+				4155BDE3E05AF52AC766973F /* MusicTeacherStudio */,
+				4AB8FFB88603D73D61BFD558 /* MusicTeacherStudioTests */,
+				016E8718C188812B0D05C8B2 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F221A6E5C867A295D4791CB8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				979C4F3B454119A32ABBDF72 /* AssignmentEditorView.swift */,
+				ADA0B74F385A8218D35809D7 /* LessonCalendarView.swift */,
+				255A1372A3C118C088178CC9 /* LessonEditorView.swift */,
+				B52F20EAC36B8B64C781BBD7 /* LessonNoteView.swift */,
+				44B007DB1110415FBCD93147 /* LessonSummaryView.swift */,
+				12AE29B520D00B854B88D5C2 /* ParentMessagePreviewView.swift */,
+				5F20E5DE2DE235C552908855 /* PaymentTrackerView.swift */,
+				2E550AE6502C38F2B39426B7 /* SettingsView.swift */,
+				406335ADA442E902B69EEB0C /* StudentDetailView.swift */,
+				BB239A14F40011E4927479CC /* StudentEditorView.swift */,
+				BF8E7E544ACA65C7C2F795C3 /* StudentListView.swift */,
+				9E4E93CCF7BD3E92EC7CE51D /* TeacherDashboardView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0DCA8F853332115B17D0593D /* MusicTeacherStudio */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5879C24D13E3A1732F8EDC83 /* Build configuration list for PBXNativeTarget "MusicTeacherStudio" */;
+			buildPhases = (
+				4C594439BF409594E30A04B2 /* Sources */,
+				471610B3B3D032D2C9213859 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MusicTeacherStudio;
+			packageProductDependencies = (
+			);
+			productName = MusicTeacherStudio;
+			productReference = DEC9464F87FCF1B112D0715E /* MusicTeacherStudio.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A63979421D840CB521509B5E /* MusicTeacherStudioTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D83D65CE70725B8AC01D19A4 /* Build configuration list for PBXNativeTarget "MusicTeacherStudioTests" */;
+			buildPhases = (
+				6F352A40A67957E2A37EE69E /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				10CF41152C3F093D9EC390E3 /* PBXTargetDependency */,
+			);
+			name = MusicTeacherStudioTests;
+			packageProductDependencies = (
+			);
+			productName = MusicTeacherStudioTests;
+			productReference = 87C55ED51C4176C30AA4B53F /* MusicTeacherStudioTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		80F9CFED6B2F8CC6D17454C1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+				};
+			};
+			buildConfigurationList = E0BE4C195143C65CF2EB92C5 /* Build configuration list for PBXProject "MusicTeacherStudio" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = E4F35EF13D26124D62011DB9;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 016E8718C188812B0D05C8B2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0DCA8F853332115B17D0593D /* MusicTeacherStudio */,
+				A63979421D840CB521509B5E /* MusicTeacherStudioTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		471610B3B3D032D2C9213859 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D832FBCEE446368E7AE2E6F2 /* Assets.xcassets in Resources */,
+				C8C102018E104EA2B55D50EE /* Configuration.storekit in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4C594439BF409594E30A04B2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A936E8A907DEEA8FDB9990F /* AIPromptTemplates.swift in Sources */,
+				3F68E586E8B6850433952473 /* AIProvider.swift in Sources */,
+				E92F7BA82D747A99C3631151 /* AnalyticsService.swift in Sources */,
+				C901CC274B7C128B5ABC7A8D /* Assignment.swift in Sources */,
+				F32A5BC63F9911D7F95D3A55 /* AssignmentEditorView.swift in Sources */,
+				6BFB42930FE7E22DF35EF582 /* AssignmentService.swift in Sources */,
+				94A05F862C8A6FAE1154954C /* AssignmentStatus.swift in Sources */,
+				798D5F53F7DCB7AAE6223C75 /* AttendanceService.swift in Sources */,
+				AD499701458099CC0C12196C /* BatchMessageView.swift in Sources */,
+				A79CC7BF767BFC4C1736ADCF /* Brand.swift in Sources */,
+				4AD01D7F88DB3ED881C63F8A /* CSVExportService.swift in Sources */,
+				5B16684D86DE837E5118DA5D /* Components.swift in Sources */,
+				026F795ED1E4F8D4F4A35F51 /* DashboardView.swift in Sources */,
+				856C07837B3211EF08D1662F /* DateFormatterUtility.swift in Sources */,
+				5466577EC9FB3A4812A7A4F1 /* Entitlement.swift in Sources */,
+				3E11B9F40960FF49BE50B1EB /* FileStorageUtility.swift in Sources */,
+				CDFB75F1F4551E862BE53CAE /* Lesson.swift in Sources */,
+				E40C6DADAA9456F50762B97B /* LessonCalendarView.swift in Sources */,
+				AFC2E526CD71CD1E0F5BEEDE /* LessonEditorView.swift in Sources */,
+				EB684A9435AED71A97FC9409 /* LessonNoteView.swift in Sources */,
+				FE885403E0D8982BBB4D499B /* LessonScheduler.swift in Sources */,
+				AAC3525D604BC1065CDD3DE7 /* LessonStatus.swift in Sources */,
+				F3A2429D4CB59E4CC07F570C /* LessonSummaryAI.swift in Sources */,
+				154E1DAC5B41983DAE3505B1 /* LessonSummaryView.swift in Sources */,
+				13D7CEF9E2E2C7936D78588C /* MockAIProvider.swift in Sources */,
+				F7C1FDD6FE55672A425B67D6 /* MoneyFormatter.swift in Sources */,
+				C2225764EB5A8D8900E06185 /* MusicTeacherStudioApp.swift in Sources */,
+				D4C35409546F588B5563D935 /* OnboardingView.swift in Sources */,
+				47E4A726B91784452715435B /* ParentMessageDraftAI.swift in Sources */,
+				6F3CC45DC069E898D94B43C3 /* ParentMessagePreviewView.swift in Sources */,
+				85DADEDE14E8E6B8A77AE33E /* PaymentBalanceService.swift in Sources */,
+				9475EA17A1FF6CE078A35765 /* PaymentRecord.swift in Sources */,
+				A95D53D8E24216690AF9496C /* PaymentTrackerView.swift in Sources */,
+				EF20361794D6A4F485D45301 /* PaywallView.swift in Sources */,
+				849F2B3E8BB40F88A48AAD1F /* PracticeRecording.swift in Sources */,
+				F3C8B6111411916D2A5D04EF /* PracticeRecordingService.swift in Sources */,
+				E2210ED8F0A9E85773184DDA /* PreviewData.swift in Sources */,
+				C592006E7A6DD785C80B783C /* RecurringLessonTemplate.swift in Sources */,
+				95A5733FFE8A0FF35408701F /* RootView.swift in Sources */,
+				1E5459FB25C09946BEC2C4CB /* SettingsView.swift in Sources */,
+				A690BBC2A2E0A412EB7E6200 /* StoreKitManager.swift in Sources */,
+				13128A45D85C4BBDE468A509 /* Student.swift in Sources */,
+				314885E2C6067BC061702950 /* StudentDetailView.swift in Sources */,
+				29C490881CE13365A82B1710 /* StudentEditorView.swift in Sources */,
+				AC6818D26472436A56D965E3 /* StudentListView.swift in Sources */,
+				913D8CC2C60A761CBD779A0E /* StudentProgressReportRenderer.swift in Sources */,
+				FFC7925595AB0A92AB20E6DE /* TeacherDashboardView.swift in Sources */,
+				D70E6901420D96ABE14C9E55 /* TunerMetronomeView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6F352A40A67957E2A37EE69E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1468765006E7EE8A1BD1723F /* AIPromptTemplateTests.swift in Sources */,
+				A88311AD68F35022C6CBA9CC /* AssignmentServiceTests.swift in Sources */,
+				D2D9416461B77447E1188CB5 /* AttendanceServiceTests.swift in Sources */,
+				7536191DF082B01C9C47B4C4 /* LessonSchedulerTests.swift in Sources */,
+				28CBCD559B6BC7F2F81A672E /* PaymentBalanceServiceTests.swift in Sources */,
+				AB93BE64091E5A53380393AD /* StudentProgressReportRendererTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		10CF41152C3F093D9EC390E3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0DCA8F853332115B17D0593D /* MusicTeacherStudio */;
+			targetProxy = 8E12EF346E491F4A78F4A85C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		0136D20B94D33110793B20A0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_LANGUAGE = "zh-Hant";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 0.1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.9;
+			};
+			name = Debug;
+		};
+		19C264C90DD2E1FAF8B3B01B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_LANGUAGE = "zh-Hant";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 0.1.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.9;
+			};
+			name = Release;
+		};
+		3F32F49757DE3C7226587BE9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jiang.musicteacherstudio.tests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MusicTeacherStudio.app/MusicTeacherStudio";
+			};
+			name = Release;
+		};
+		88942051E468902186716416 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = MusicTeacherStudio/Resources/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jiang.musicteacherstudio;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		D2AD5A8A67AC716DC8FA2DE0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jiang.musicteacherstudio.tests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MusicTeacherStudio.app/MusicTeacherStudio";
+			};
+			name = Debug;
+		};
+		DBA9A53413B41F18F9A3B384 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = MusicTeacherStudio/Resources/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jiang.musicteacherstudio;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5879C24D13E3A1732F8EDC83 /* Build configuration list for PBXNativeTarget "MusicTeacherStudio" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DBA9A53413B41F18F9A3B384 /* Debug */,
+				88942051E468902186716416 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		D83D65CE70725B8AC01D19A4 /* Build configuration list for PBXNativeTarget "MusicTeacherStudioTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D2AD5A8A67AC716DC8FA2DE0 /* Debug */,
+				3F32F49757DE3C7226587BE9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		E0BE4C195143C65CF2EB92C5 /* Build configuration list for PBXProject "MusicTeacherStudio" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0136D20B94D33110793B20A0 /* Debug */,
+				19C264C90DD2E1FAF8B3B01B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 80F9CFED6B2F8CC6D17454C1 /* Project object */;
+}
