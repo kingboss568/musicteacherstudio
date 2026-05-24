@@ -28,7 +28,9 @@ Date: 2026-05-24
 - `fastlane ios build_for_review` exports `Build/Export/MusicTeacherStudio.ipa`.
 - Targeted screenshot route tests pass:
   `MusicTeacherStudioTests/ScreenshotLaunchRouteTests`, 3 tests, 0 failures.
-- `fastlane ios submit_review` was attempted and stopped only after local validation passed, because App Store Connect authentication was missing.
+- App Store Connect API key authentication is working with key `WZBYHD6QVD` and issuer `69a6de78-ba5a-47e3-e053-5b8c7c11a4d1`.
+- `fastlane ios upload_metadata` completed successfully after uploading metadata, App Review information, age rating, and screenshots.
+- Build `242245cb-0ab1-427c-a191-1aa4754d9d4a` is `VALID`, App Store eligible, and attached to iOS App version `1.0`.
 
 ## Verification Evidence
 
@@ -38,25 +40,31 @@ Date: 2026-05-24
 - Screenshot sizes:
   - iPhone 6.9 inch: `1320x2868`
   - iPad 13 inch: `2064x2752`
+- App Store Connect version:
+  - App Store version id: `b9413198-40a8-4719-8466-7c17f07fc422`
+  - State: `PREPARE_FOR_SUBMISSION`
+  - Release type: manual
+  - Attached build id: `242245cb-0ab1-427c-a191-1aa4754d9d4a`
+  - Build processing state: `VALID`
 
 ## Blockers Before Actual Submission
 
-1. App Store Connect authentication is not available in the shell environment:
-   no `APP_STORE_CONNECT_API_KEY_PATH`, `APP_STORE_CONNECT_API_KEY`, or `FASTLANE_SESSION` was present during this run.
-
-2. IAPs must still be created or verified in App Store Connect and attached to app version `1.0`:
+1. IAPs must still be created or verified in App Store Connect and attached to app version `1.0`:
    `studio.pro.monthly`, `studio.pro.yearly`, `studio.pro.lifetime`.
+   App Store Connect API currently reports `0` in-app purchases for this app.
 
-3. App Store Connect version fields still require final UI verification in Comet before pressing Submit for Review:
-   category, age rating, app privacy page, build selection, IAP attachment, review information, and export compliance.
+2. App Store Connect version fields still require final UI verification in Comet before pressing Submit for Review:
+   app privacy page, IAP attachment, and final review-submission readiness.
 
-4. Binary upload and review submission are not complete until authenticated Fastlane or App Store Connect/Xcode upload confirms the build is processed and attached.
+3. Review submission is not complete. Do not press Submit for Review until the IAP products exist and are included with the submission.
 
-## Next Command Sequence After ASC Auth And IAPs Are Ready
+## Next Command Sequence After IAPs Are Ready
 
 ```sh
 fastlane ios validate_submission_package
-fastlane ios upload_metadata
-fastlane ios upload_build
-fastlane ios submit_review
+env -u APP_STORE_CONNECT_API_KEY_PATH \
+  ASC_API_KEY_PATH=/Users/jushiung/Downloads/AuthKey_WZBYHD6QVD.p8 \
+  APP_STORE_CONNECT_KEY_ID=WZBYHD6QVD \
+  APP_STORE_CONNECT_ISSUER_ID=69a6de78-ba5a-47e3-e053-5b8c7c11a4d1 \
+  fastlane ios submit_review
 ```
