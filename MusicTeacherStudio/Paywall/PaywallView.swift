@@ -63,14 +63,10 @@ struct PaywallView: View {
 
     private var hero: some View {
         VStack(spacing: Brand.Space.s) {
-            Image(systemName: "music.note.list")
-                .font(.system(size: 44, weight: .bold))
-                .foregroundStyle(.white)
-                .padding(Brand.Space.l)
-                .background(
-                    Circle().fill(.white.opacity(0.15))
-                        .overlay(Circle().stroke(.white.opacity(0.4), lineWidth: 1))
-                )
+            BrandAppIcon(size: 78, cornerRadius: 18)
+                .padding(10)
+                .background(Circle().fill(.white.opacity(0.16)))
+                .overlay(Circle().stroke(.white.opacity(0.34), lineWidth: 1))
                 .padding(.top, Brand.Space.xxl)
             Text("升級 \(Brand.Strings.proName)")
                 .font(.system(size: 32, weight: .bold, design: .rounded))

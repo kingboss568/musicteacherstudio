@@ -103,9 +103,13 @@ struct SettingsView: View {
                         .foregroundStyle(.white.opacity(0.9))
                 }
                 Spacer()
-                Image(systemName: store.isPro ? "crown.fill" : "music.note.list")
-                    .font(.system(size: 36, weight: .bold))
-                    .foregroundStyle(.white)
+                if store.isPro {
+                    Image(systemName: "crown.fill")
+                        .font(.system(size: 36, weight: .bold))
+                        .foregroundStyle(.white)
+                } else {
+                    BrandAppIcon(size: 48, cornerRadius: 12, strokeColor: .white.opacity(0.52))
+                }
             }
         }
     }

@@ -136,6 +136,28 @@ struct ProBadge: View {
     }
 }
 
+// MARK: - Brand icon
+
+struct BrandAppIcon: View {
+    var size: CGFloat = 52
+    var cornerRadius: CGFloat? = nil
+    var strokeColor: Color = .white.opacity(0.38)
+
+    var body: some View {
+        Image("BrandAppIcon")
+            .resizable()
+            .scaledToFill()
+            .frame(width: size, height: size)
+            .clipShape(RoundedRectangle(cornerRadius: cornerRadius ?? size * 0.22, style: .continuous))
+            .overlay(
+                RoundedRectangle(cornerRadius: cornerRadius ?? size * 0.22, style: .continuous)
+                    .stroke(strokeColor, lineWidth: 1)
+            )
+            .shadow(color: .black.opacity(0.14), radius: size * 0.16, x: 0, y: size * 0.07)
+            .accessibilityLabel(Brand.Strings.productName)
+    }
+}
+
 struct ProLockOverlay: ViewModifier {
     let isLocked: Bool
     let onTap: () -> Void

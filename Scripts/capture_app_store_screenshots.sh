@@ -23,8 +23,67 @@ cleanup() {
     xcrun simctl terminate "$udid" "$APP_ID" >/dev/null 2>&1 || true
     xcrun simctl shutdown "$udid" >/dev/null 2>&1 || true
   done
+  find "$OUTPUT_DIR" "$IPHONE_LEGACY_DIR" "$IPAD_LEGACY_DIR" -name '._*.png' -delete 2>/dev/null || true
 }
 trap cleanup EXIT
+
+run_with_timeout() {
+  local seconds="$1"
+  shift
+  local pid elapsed=0
+
+  "$@" &
+  pid="$!"
+
+  while kill -0 "$pid" >/dev/null 2>&1; do
+    if [[ "$elapsed" -ge "$seconds" ]]; then
+      kill "$pid" >/dev/null 2>&1 || true
+      wait "$pid" >/dev/null 2>&1 || true
+      echo "Timed out after ${seconds}s: $*" >&2
+      return 124
+    fi
+    sleep 1
+    elapsed=$((elapsed + 1))
+  done
+
+  wait "$pid"
+}
+
+is_blank_image() {
+  local file="$1"
+  local stats ymin yavg ymax satavg satmax
+
+  command -v ffmpeg >/dev/null 2>&1 || return 1
+  stats="$(ffmpeg -hide_banner -i "$file" -vf "crop=iw:900:0:180,signalstats,metadata=print:file=-" -frames:v 1 -f null - 2>/dev/null || true)"
+  ymin="$(printf '%s\n' "$stats" | awk -F= '/lavfi.signalstats.YMIN/ { print $2; exit }')"
+  yavg="$(printf '%s\n' "$stats" | awk -F= '/lavfi.signalstats.YAVG/ { print $2; exit }')"
+  ymax="$(printf '%s\n' "$stats" | awk -F= '/lavfi.signalstats.YMAX/ { print $2; exit }')"
+  satavg="$(printf '%s\n' "$stats" | awk -F= '/lavfi.signalstats.SATAVG/ { print $2; exit }')"
+  satmax="$(printf '%s\n' "$stats" | awk -F= '/lavfi.signalstats.SATMAX/ { print $2; exit }')"
+
+  [[ -n "$ymin" && -n "$yavg" && -n "$ymax" && -n "$satavg" && -n "$satmax" ]] || return 1
+  awk -v ymin="$ymin" -v y="$yavg" -v ymax="$ymax" -v s="$satavg" -v smax="$satmax" \
+    'BEGIN { exit !(((ymax - ymin) < 3) && (s < 1) && (smax < 3) && (y > 220 || y < 35)) }'
+}
+
+capture_when_ready() {
+  local udid="$1"
+  local output="$2"
+  local attempts=0
+
+  while [[ $attempts -lt 12 ]]; do
+    sleep 2
+    rm -f "$output"
+    xcrun simctl io "$udid" screenshot "$output"
+    if ! is_blank_image "$output"; then
+      return
+    fi
+    attempts=$((attempts + 1))
+  done
+
+  echo "Screenshot stayed blank after waiting: $output" >&2
+  return 1
+}
 
 resolve_udid() {
   local name="$1"
@@ -47,20 +106,22 @@ ensure_udid() {
   xcrun simctl create "$name" "$device_type" "$IOS_RUNTIME"
 }
 
-wait_until_booted() {
+wait_until_shutdown() {
   local udid="$1"
   local attempts=0
-  while [[ $attempts -lt 60 ]]; do
-    if xcrun simctl list devices available | grep -F "$udid" | grep -q "(Booted)"; then
-      sleep 5
+  while [[ $attempts -lt 30 ]]; do
+    if xcrun simctl list devices available | grep -F "$udid" | grep -q "(Shutdown)"; then
       return
     fi
-    sleep 2
+    sleep 1
     attempts=$((attempts + 1))
   done
+}
 
-  echo "Simulator $udid did not reach Booted state." >&2
-  exit 1
+wait_until_booted() {
+  local udid="$1"
+  run_with_timeout 120 xcrun simctl bootstatus "$udid" -b >/dev/null
+  sleep 3
 }
 
 capture_device() {
@@ -79,10 +140,11 @@ capture_device() {
   ACTIVE_UDIDS+=("$udid")
 
   xcrun simctl shutdown "$udid" >/dev/null 2>&1 || true
+  wait_until_shutdown "$udid"
   xcrun simctl boot "$udid" >/dev/null 2>&1 || true
   wait_until_booted "$udid"
   xcrun simctl ui "$udid" appearance light >/dev/null 2>&1 || true
-  xcrun simctl install "$udid" "$APP_PATH"
+  run_with_timeout 120 xcrun simctl install "$udid" "$APP_PATH"
 
   local routes=(
     "dashboard:01_dashboard"
@@ -103,10 +165,8 @@ capture_device() {
     local tmp_file="/tmp/mts_${prefix}_${slug}_$$.png"
 
     xcrun simctl terminate "$udid" "$APP_ID" >/dev/null 2>&1 || true
-    xcrun simctl launch "$udid" "$APP_ID" -MTSUsePreviewData -MTSForcePro -MTSScreenshotScreen "$route" >/dev/null
-    sleep 4
-    rm -f "$tmp_file"
-    xcrun simctl io "$udid" screenshot "$tmp_file"
+    run_with_timeout 45 xcrun simctl launch "$udid" "$APP_ID" -MTSUsePreviewData -MTSForcePro -MTSScreenshotScreen "$route" >/dev/null
+    capture_when_ready "$udid" "$tmp_file"
     cp "$tmp_file" "$fastlane_file"
     cp "$tmp_file" "$legacy_file"
     rm -f "$tmp_file"
@@ -124,6 +184,7 @@ xcodebuild \
   -destination 'generic/platform=iOS Simulator' \
   -derivedDataPath Build/DerivedData \
   CODE_SIGNING_ALLOWED=NO \
+  ENABLE_DEBUG_DYLIB=NO \
   build
 
 if [[ ! -d "$APP_PATH" ]]; then
@@ -133,5 +194,7 @@ fi
 
 capture_device "iphone69" "$IPHONE_SIMULATOR_NAME" "$IPHONE_LEGACY_DIR" "$IPHONE_DEVICE_TYPE"
 capture_device "ipad13" "$IPAD_SIMULATOR_NAME" "$IPAD_LEGACY_DIR" "$IPAD_DEVICE_TYPE"
+
+find "$OUTPUT_DIR" "$IPHONE_LEGACY_DIR" "$IPAD_LEGACY_DIR" -name '._*.png' -delete
 
 bash "$ROOT_DIR/Scripts/validate_app_store_package.sh"

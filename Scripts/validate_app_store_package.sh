@@ -37,6 +37,23 @@ pixel_size() {
     awk '/pixelWidth/ { width=$2 } /pixelHeight/ { height=$2 } END { print width "x" height }'
 }
 
+is_blank_image() {
+  local file="$1"
+  local stats ymin yavg ymax satavg satmax
+
+  command -v ffmpeg >/dev/null 2>&1 || return 1
+  stats="$(ffmpeg -hide_banner -i "$file" -vf "crop=iw:900:0:180,signalstats,metadata=print:file=-" -frames:v 1 -f null - 2>/dev/null || true)"
+  ymin="$(printf '%s\n' "$stats" | awk -F= '/lavfi.signalstats.YMIN/ { print $2; exit }')"
+  yavg="$(printf '%s\n' "$stats" | awk -F= '/lavfi.signalstats.YAVG/ { print $2; exit }')"
+  ymax="$(printf '%s\n' "$stats" | awk -F= '/lavfi.signalstats.YMAX/ { print $2; exit }')"
+  satavg="$(printf '%s\n' "$stats" | awk -F= '/lavfi.signalstats.SATAVG/ { print $2; exit }')"
+  satmax="$(printf '%s\n' "$stats" | awk -F= '/lavfi.signalstats.SATMAX/ { print $2; exit }')"
+
+  [[ -n "$ymin" && -n "$yavg" && -n "$ymax" && -n "$satavg" && -n "$satmax" ]] || return 1
+  awk -v ymin="$ymin" -v y="$yavg" -v ymax="$ymax" -v s="$satavg" -v smax="$satmax" \
+    'BEGIN { exit !(((ymax - ymin) < 3) && (s < 1) && (smax < 3) && (y > 220 || y < 35)) }'
+}
+
 is_iphone_69_size() {
   case "$1" in
     1260x2736|1290x2796|1320x2868) return 0 ;;
@@ -126,6 +143,7 @@ if ! $ALLOW_MISSING_SCREENSHOTS; then
     for file in "${iphone_files[@]}"; do
       size="$(pixel_size "$file")"
       is_iphone_69_size "$size" || fail "Invalid iPhone 6.9 screenshot size $size: $file"
+      is_blank_image "$file" && fail "Blank iPhone 6.9 screenshot: $file"
     done
   fi
 
@@ -137,6 +155,7 @@ if ! $ALLOW_MISSING_SCREENSHOTS; then
     for file in "${ipad_files[@]}"; do
       size="$(pixel_size "$file")"
       is_ipad_13_size "$size" || fail "Invalid iPad 13 screenshot size $size: $file"
+      is_blank_image "$file" && fail "Blank iPad 13 screenshot: $file"
     done
   fi
 fi
