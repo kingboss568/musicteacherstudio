@@ -175,14 +175,26 @@ struct EmptyStateView: View {
     var subtitle: String? = nil
     var actionTitle: String? = nil
     var action: (() -> Void)? = nil
+    /// 自訂插圖（資產目錄名稱）；若有則優先顯示，沒有則 fall back 到 SF Symbol。
+    var assetName: String? = nil
 
     var body: some View {
         VStack(spacing: Brand.Space.m) {
-            Image(systemName: icon)
-                .font(.system(size: 44, weight: .light))
-                .foregroundStyle(Brand.primary.opacity(0.6))
-                .padding(20)
-                .background(Circle().fill(Brand.primary.opacity(0.08)))
+            ZStack {
+                Circle().fill(Brand.primary.opacity(0.08))
+                if let name = assetName {
+                    Image(name)
+                        .resizable()
+                        .scaledToFit()
+                        .padding(18)
+                } else {
+                    Image(systemName: icon)
+                        .font(.system(size: 44, weight: .light))
+                        .foregroundStyle(Brand.primary.opacity(0.6))
+                }
+            }
+            .frame(width: 180, height: 180)
+
             Text(title).font(Brand.Font.title2)
             if let s = subtitle {
                 Text(s).font(Brand.Font.caption).foregroundStyle(.secondary)

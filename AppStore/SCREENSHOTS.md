@@ -17,6 +17,8 @@ Use the `Debug` build with:
 
 ```text
 -MTSUsePreviewData
+-MTSForcePro
+-MTSScreenshotScreen dashboard|students|lessons|payments|settings|paywall
 ```
 
 This uses an in-memory SwiftData container seeded with demo students, lessons, assignments, payments, and recordings. It also skips onboarding so App Store screenshots show real product screens instead of empty data.
@@ -30,8 +32,23 @@ This uses an in-memory SwiftData container seeded with demo students, lessons, a
 5. AI draft: 家長訊息與學習摘要
 6. Paywall: Pro 工作室價值
 
+## Fastlane Capture
+
+Run:
+
+```sh
+fastlane ios capture_app_store_screenshots
+```
+
+The script captures six iPhone 6.9-inch screenshots and six iPad 13-inch screenshots into `fastlane/screenshots/zh-Hant/`, mirrors them into `AppStore/Screenshots/`, validates their dimensions, and shuts down each simulator after its capture pass.
+
+By default it creates and uses dedicated simulators named `MTS-iPhone-6.9` and `MTS-iPad-13` so other background screenshot jobs do not collide with this app. Override with `IPHONE_SIMULATOR_NAME` or `IPAD_SIMULATOR_NAME` only when deliberately reusing an existing simulator.
+
 ## Captured In This Repo
 
-`AppStore/Screenshots/iPhone-6.9/` currently contains five direct simulator screenshots at 1320×2868.
+Fastlane-ready output must include:
 
-The iPad 13-inch simulator booted intermittently in this environment, but app installation failed with CoreSimulator Mach errors while other simulator install processes were also running. Capture iPad 13-inch again from a clean Simulator state before final App Review upload.
+- `fastlane/screenshots/zh-Hant/iphone69_01_dashboard.png` through `iphone69_06_paywall.png`
+- `fastlane/screenshots/zh-Hant/ipad13_01_dashboard.png` through `ipad13_06_paywall.png`
+
+Run `Scripts/validate_app_store_package.sh` before upload; it fails if either required device class is missing or has an invalid pixel size.

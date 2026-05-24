@@ -18,6 +18,31 @@ struct LessonCalendarView: View {
     }
 
     var body: some View {
+        Group {
+            if filtered.isEmpty {
+                EmptyStateView(
+                    icon: "calendar",
+                    title: "還沒有任何課程",
+                    subtitle: "新增單次課程，\n或從學生詳情頁設定固定課表。",
+                    actionTitle: "新增課程",
+                    action: {
+                        Haptics.light()
+                        showAdd = true
+                    },
+                    assetName: "EmptyLessons"
+                )
+            } else {
+                lessonList
+            }
+        }
+        .navigationTitle("課表")
+        .toolbar { toolbarContent }
+        .sheet(isPresented: $showAdd) {
+            NavigationStack { LessonEditorView() }
+        }
+    }
+
+    private var lessonList: some View {
         List {
             ForEach(grouped, id: \.0) { day, items in
                 Section(day) {
@@ -25,39 +50,63 @@ struct LessonCalendarView: View {
                         NavigationLink {
                             LessonNoteView(lesson: lesson)
                         } label: {
-                            HStack {
-                                VStack(alignment: .leading) {
-                                    Text(studentName(for: lesson.studentID)).font(.headline)
+                            HStack(spacing: Brand.Space.m) {
+                                if let s = student(for: lesson.studentID) {
+                                    StudentAvatar(name: s.name, instrument: s.instrument, size: 40)
+                                }
+                                VStack(alignment: .leading, spacing: 3) {
+                                    Text(studentName(for: lesson.studentID)).font(Brand.Font.bodyEmphasis)
                                     Text("\(DateFormatterUtility.timeString(lesson.scheduledStart)) – \(DateFormatterUtility.timeString(lesson.scheduledEnd))")
-                                        .font(.caption).foregroundStyle(.secondary)
+                                        .font(Brand.Font.caption).foregroundStyle(.secondary)
                                 }
                                 Spacer()
-                                Text(lesson.status.displayName).font(.caption)
+                                statusBadge(lesson.status)
                             }
                         }
                     }
                 }
             }
         }
-        .navigationTitle("課表")
-        .toolbar {
-            ToolbarItem(placement: .topBarLeading) {
-                Menu {
-                    Button("全部") { studentFilter = nil }
-                    ForEach(students) { s in
-                        Button(s.name) { studentFilter = s.id }
-                    }
-                } label: {
-                    Image(systemName: "line.3.horizontal.decrease.circle")
+    }
+
+    @ToolbarContentBuilder
+    private var toolbarContent: some ToolbarContent {
+        ToolbarItem(placement: .topBarLeading) {
+            Menu {
+                Button("全部") { studentFilter = nil }
+                ForEach(students) { s in
+                    Button(s.name) { studentFilter = s.id }
                 }
-            }
-            ToolbarItem(placement: .topBarTrailing) {
-                Button { showAdd = true } label: { Image(systemName: "plus") }
+            } label: {
+                Image(systemName: "line.3.horizontal.decrease.circle")
             }
         }
-        .sheet(isPresented: $showAdd) {
-            NavigationStack { LessonEditorView() }
+        ToolbarItem(placement: .topBarTrailing) {
+            Button {
+                Haptics.light()
+                showAdd = true
+            } label: { Image(systemName: "plus") }
         }
+    }
+
+    private func statusBadge(_ status: LessonStatus) -> some View {
+        let tint: Color = {
+            switch status {
+            case .scheduled: return Brand.primary
+            case .attended:  return Brand.success
+            case .cancelled: return .gray
+            case .noShow:    return Brand.danger
+            }
+        }()
+        return Text(status.displayName)
+            .font(.system(size: 11, weight: .semibold))
+            .padding(.horizontal, 8).padding(.vertical, 3)
+            .background(Capsule().fill(tint.opacity(0.15)))
+            .foregroundStyle(tint)
+    }
+
+    private func student(for id: UUID) -> Student? {
+        students.first { $0.id == id }
     }
 
     private func studentName(for id: UUID) -> String {

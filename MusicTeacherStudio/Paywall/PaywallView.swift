@@ -15,9 +15,11 @@ struct PaywallView: View {
             ScrollView {
                 VStack(spacing: Brand.Space.xl) {
                     hero
+                    socialProof
                     valueProps
                     planSelector
                     purchaseCTA
+                    faqSection
                     smallPrint
                 }
                 .padding(.horizontal, Brand.Space.l)
@@ -107,6 +109,52 @@ struct PaywallView: View {
         )
     }
 
+    private var socialProof: some View {
+        VStack(spacing: Brand.Space.m) {
+            HStack(spacing: 4) {
+                ForEach(0..<5, id: \.self) { _ in
+                    Image(systemName: "star.fill")
+                        .foregroundStyle(Color(red: 1, green: 0.83, blue: 0.27))
+                        .font(.system(size: 13))
+                }
+                Text("老師們的心得").font(Brand.Font.captionEmphasis).foregroundStyle(.white.opacity(0.85))
+            }
+            HStack(spacing: 10) {
+                quote("「以前每週末整理收費要兩小時，現在 10 分鐘搞定。」", "鋼琴 · 林老師")
+                quote("「家長訊息再也不用我從零打字。」", "小提琴 · 王老師")
+            }
+        }
+    }
+
+    private func quote(_ text: String, _ author: String) -> some View {
+        VStack(alignment: .leading, spacing: 6) {
+            Text("\u{201C}").font(.system(size: 28, weight: .black, design: .rounded))
+                .foregroundStyle(.white.opacity(0.5))
+                .frame(height: 10, alignment: .top)
+            Text(text)
+                .font(.system(size: 13))
+                .foregroundStyle(.white)
+                .fixedSize(horizontal: false, vertical: true)
+            Text(author).font(.system(size: 11)).foregroundStyle(.white.opacity(0.7))
+        }
+        .padding(Brand.Space.m)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .background(
+            RoundedRectangle(cornerRadius: Brand.Radius.m)
+                .fill(.white.opacity(0.10))
+                .overlay(RoundedRectangle(cornerRadius: Brand.Radius.m).stroke(.white.opacity(0.18)))
+        )
+    }
+
+    private var faqSection: some View {
+        VStack(alignment: .leading, spacing: Brand.Space.s) {
+            Text("常見問題").font(Brand.Font.title2).foregroundStyle(.white)
+            ForEach(PaywallFAQ.all, id: \.question) { item in
+                FAQRow(question: item.question, answer: item.answer)
+            }
+        }
+    }
+
     private var planSelector: some View {
         VStack(spacing: Brand.Space.m) {
             ForEach(ProProduct.allCases) { plan in
@@ -159,6 +207,71 @@ struct PaywallView: View {
         .font(.system(size: 11))
         .foregroundStyle(.white.opacity(0.7))
         .multilineTextAlignment(.center)
+    }
+}
+
+struct PaywallFAQ: Equatable {
+    let question: String
+    let answer: String
+
+    static let all: [PaywallFAQ] = [
+        PaywallFAQ(
+            question: "試用期可以取消嗎？",
+            answer: "可以。7 天試用期內隨時於 App Store 訂閱項目取消，不會被扣款。"
+        ),
+        PaywallFAQ(
+            question: "買月訂閱跟年訂閱差別？",
+            answer: "年訂閱省 31%。Pro 功能完全相同；如果你想長期使用，建議直接年訂閱或終身版。"
+        ),
+        PaywallFAQ(
+            question: "終身版包含哪些內容？",
+            answer: "終身版一次付清，解鎖本版本所有 Pro 功能，不會自動續訂。"
+        ),
+        PaywallFAQ(
+            question: "我的學生資料安全嗎？",
+            answer: "完全本機儲存。我們沒有伺服器、沒有後端、不會看到也不會收集你的資料。"
+        ),
+        PaywallFAQ(
+            question: "我換手機怎麼辦？",
+            answer: "目前請使用 Pro 的 CSV 匯出與本機備份包手動保存資料，再在新裝置匯入或留存。"
+        )
+    ]
+}
+
+private struct FAQRow: View {
+    let question: String
+    let answer: String
+    @State private var expanded = false
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 6) {
+            Button {
+                Haptics.select()
+                withAnimation(.spring(response: 0.35, dampingFraction: 0.85)) {
+                    expanded.toggle()
+                }
+            } label: {
+                HStack {
+                    Text(question).font(Brand.Font.bodyEmphasis).foregroundStyle(.white)
+                    Spacer()
+                    Image(systemName: "chevron.down")
+                        .rotationEffect(.degrees(expanded ? 180 : 0))
+                        .foregroundStyle(.white.opacity(0.7))
+                }
+            }
+            .buttonStyle(.plain)
+            if expanded {
+                Text(answer)
+                    .font(Brand.Font.caption)
+                    .foregroundStyle(.white.opacity(0.85))
+                    .fixedSize(horizontal: false, vertical: true)
+                    .transition(.opacity.combined(with: .move(edge: .top)))
+            }
+        }
+        .padding(Brand.Space.m)
+        .background(
+            RoundedRectangle(cornerRadius: Brand.Radius.m).fill(.white.opacity(0.08))
+        )
     }
 }
 

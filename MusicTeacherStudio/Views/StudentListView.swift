@@ -22,16 +22,33 @@ struct StudentListView: View {
     }
 
     var body: some View {
-        List {
-            ForEach(filtered) { student in
-                NavigationLink {
-                    StudentDetailView(student: student)
-                } label: {
-                    StudentRow(student: student,
-                               balanceCents: payService.outstandingBalanceCents(for: student.id, lessons: lessons),
-                               lastLessonDate: lessons.filter { $0.studentID == student.id }
-                                   .map(\.scheduledStart).max())
+        Group {
+            if students.isEmpty {
+                EmptyStateView(
+                    icon: "person.2",
+                    title: "還沒有任何學生",
+                    subtitle: "點右上角 + 來新增第一位學生，\n或從 CSV 匯入（Pro）。",
+                    actionTitle: "新增第一位學生",
+                    action: {
+                        Haptics.light()
+                        showStudentEditor = true
+                    },
+                    assetName: "EmptyStudents"
+                )
+            } else {
+                List {
+                    ForEach(filtered) { student in
+                        NavigationLink {
+                            StudentDetailView(student: student)
+                        } label: {
+                            StudentRow(student: student,
+                                       balanceCents: payService.outstandingBalanceCents(for: student.id, lessons: lessons),
+                                       lastLessonDate: lessons.filter { $0.studentID == student.id }
+                                           .map(\.scheduledStart).max())
+                        }
+                    }
                 }
+                .listStyle(.plain)
             }
         }
         .navigationTitle("學生")
@@ -85,28 +102,38 @@ private struct StudentRow: View {
     let lastLessonDate: Date?
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 4) {
-            HStack {
-                Text(student.name).font(.headline)
-                if !student.isActive {
-                    Text("停用").font(.caption).foregroundStyle(.secondary)
+        HStack(spacing: Brand.Space.m) {
+            StudentAvatar(name: student.name, instrument: student.instrument, size: 48)
+            VStack(alignment: .leading, spacing: 4) {
+                HStack(spacing: 6) {
+                    Text(student.name).font(Brand.Font.bodyEmphasis).foregroundStyle(Brand.ink)
+                    if !student.isActive {
+                        Text("停用")
+                            .font(.system(size: 10, weight: .semibold))
+                            .padding(.horizontal, 6).padding(.vertical, 2)
+                            .background(Capsule().fill(Color.gray.opacity(0.18)))
+                            .foregroundStyle(.secondary)
+                    }
                 }
-                Spacer()
-                if balanceCents > 0 {
+                HStack(spacing: 6) {
+                    Text(student.instrument)
+                    if let level = student.level { Text("・\(level)") }
+                    if let last = lastLessonDate {
+                        Text("・最近 \(DateFormatterUtility.dateString(last))")
+                    }
+                }
+                .font(Brand.Font.caption).foregroundStyle(.secondary).lineLimit(1)
+            }
+            Spacer()
+            if balanceCents > 0 {
+                VStack(alignment: .trailing, spacing: 2) {
                     Text(MoneyFormatter.string(fromCents: balanceCents))
-                        .font(.subheadline).foregroundStyle(.red)
+                        .font(Brand.Font.bodyEmphasis).foregroundStyle(Brand.danger)
+                    Text("待收").font(.system(size: 10)).foregroundStyle(.secondary)
                 }
             }
-            HStack(spacing: 8) {
-                Text(student.instrument)
-                if let level = student.level { Text("・\(level)") }
-                if let last = lastLessonDate {
-                    Spacer()
-                    Text("最近：\(DateFormatterUtility.dateString(last))")
-                }
-            }
-            .font(.caption).foregroundStyle(.secondary)
         }
+        .padding(.vertical, 6)
     }
 }
 

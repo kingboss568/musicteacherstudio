@@ -1,5 +1,9 @@
 .DS_Store
+._*
+.AppleDouble/
+__MACOSX/
 DerivedData/
+Build/
 build/
 *.xcuserstate
 xcuserdata/
@@ -8,3 +12,6 @@ xcuserdata/
 *.dSYM.zip
 *.dSYM
 *.log
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/**/*.html

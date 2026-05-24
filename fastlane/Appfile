@@ -1,0 +1,6 @@
+app_identifier("com.jiang.musicteacherstudio")
+apple_id(ENV.fetch("FASTLANE_APPLE_ID", "jushiung@gmail.com"))
+team_id(ENV.fetch("FASTLANE_TEAM_ID", "7H7ZUG2WX8"))
+
+team_name("Yu Shiung Jiang")
+itc_team_name("Yu Shiung Jiang")

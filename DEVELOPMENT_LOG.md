@@ -409,3 +409,58 @@ $ find MusicTeacherStudio MusicTeacherStudioTests -name "*.swift" | wc -l
 
 紀錄人：Claude Code（@iOS-Dev 託管）
 版本：v2.0「樂課管家」可上架級升級包
+
+---
+
+# v2.1 進化紀錄（2026-05-20）
+
+## 觸發
+@Jiang 二輪指示：再往「世界級可上架」推一檔。@Jiang 已手動把品牌正名為「**樂課管家**」、把 ChatGPT 生成的全部插圖（4 onboarding + 3 空狀態 + 1 paywall backdrop + 1024 AppIcon）放入 Assets.xcassets，並補上 `-MTSUsePreviewData` 截圖模式啟動引數。
+
+## v2.1 升級項目
+
+### A. 設計系統再強化
+- `DesignSystem/Haptics.swift` — 8 種統一觸覺回饋（light / medium / heavy / soft / rigid / select / success / warning / error）
+- `DesignSystem/StudentAvatar.swift` — 圓形彩色字首頭像，姓名 hash 自動配色（7 色 palette）+ 樂器小圖示徽章 + soft shadow
+- `Components.EmptyStateView` 加 `assetName` 參數 — 自動套用 ChatGPT 插圖，沒圖時 fallback 到 SF Symbol
+
+### B. 新功能（提升「物超所值」感）
+
+**練習打卡 Streak（讓老師每天上癮）**
+- `Features/Dashboard/StreakService.swift` — 純函式：當日紀錄、容忍昨天 grace、自動算最長/總活躍
+- `Features/Dashboard/StreakCard.swift` — 視覺化卡片：火焰大小隨天數成長（36→78px），顏色階梯升級（橙→紅金→紫紅），motto 文案 5 階；免費看當前、Pro 看完整歷史
+
+**Smart Reminders（不需通知權限，App 內呈現）**
+- `Features/Dashboard/SmartRemindersService.swift` — 4 種規則：2h 內即將上課 / 逾期未紀錄 / 高欠款（≥NT$2000）/ 作業 3 天內到期
+- `Features/Dashboard/RemindersCard.swift` — 三級嚴重性視覺（info/warning/alert）+ 動作標籤
+
+### C. 內頁美學升級
+| 頁面 | 升級 |
+|---|---|
+| `DashboardView` | 加入 Reminders + Streak 兩張卡，主頁 7 區 |
+| `StudentListView` | 學生 row 加 **StudentAvatar**；空狀態用 `EmptyStudents` 插圖 + CTA；balance stack 改為右側雙行 |
+| `LessonCalendarView` | row 加 **StudentAvatar**；狀態改為彩色 badge；空狀態用 `EmptyLessons` 插圖 |
+| `PaywallView` | 加 **5 星社會證明 + 2 段老師語錄** + **可折疊 FAQ ×5**（試用 / 差別 / 終身 / 隱私 / 換機）+ 全套 haptic |
+
+### D. 文檔同步
+- `README.md` 正名為「樂課管家 · MusicTeacher Studio」
+- `Brand.swift` / `APP_STORE_LISTING.md` / `PRIVACY.md` / `ASSETS_BRIEF.md` 已是樂課管家版本（@Jiang 手動）
+
+### E. 驗證
+
+| 指標 | 結果 |
+|---|---|
+| Build | ✅ BUILD SUCCEEDED |
+| Tests | ✅ **37/37 全綠**（30 + 新增 7 個 StreakServiceTests） |
+| 新增 Swift 檔 | 7（Haptics / StudentAvatar / StreakService / StreakCard / SmartRemindersService / RemindersCard / StreakServiceTests） |
+| Swift 檔總數 | 54 → **61** |
+
+### F. v2.2 建議
+1. AppIcon 1024 已置入 → 跑 `mkappicon` 一鍵展開所有尺寸
+2. iCloud 同步：ModelContainer 切到 `.cloudKitDatabase`（僅 Pro）
+3. `LessonNoteView` 改為「儀式感頁面」：大狀態 segmented + 儲存後 confetti 動畫
+4. UNUserNotificationCenter 真實排程推播
+5. 練習 streak 分享連結（家長 read-only HTML 頁）
+
+紀錄人：Claude Code（@iOS-Dev 託管）
+版本：v2.1「樂課管家」可上架級進化包

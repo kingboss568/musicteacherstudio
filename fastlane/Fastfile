@@ -1,0 +1,126 @@
+default_platform(:ios)
+
+APP_IDENTIFIER = "com.jiang.musicteacherstudio"
+TEAM_ID = ENV.fetch("FASTLANE_TEAM_ID", "7H7ZUG2WX8")
+REPO_ROOT = File.expand_path("..", __dir__)
+EXPORT_DIR = File.join(REPO_ROOT, "Build", "Export")
+IPA_PATH = File.join(EXPORT_DIR, "MusicTeacherStudio.ipa")
+
+def script_path(name)
+  File.join(REPO_ROOT, "Scripts", name)
+end
+
+def asc_auth_available?
+  ENV["APP_STORE_CONNECT_API_KEY_PATH"].to_s.length.positive? ||
+    ENV["APP_STORE_CONNECT_API_KEY"].to_s.length.positive? ||
+    ENV["FASTLANE_SESSION"].to_s.length.positive?
+end
+
+def ensure_asc_auth!
+  return if asc_auth_available?
+
+  UI.user_error!("App Store Connect authentication is missing. Set APP_STORE_CONNECT_API_KEY_PATH, APP_STORE_CONNECT_API_KEY, or FASTLANE_SESSION before upload/submit lanes.")
+end
+
+def deliver_base_options
+  {
+    app_identifier: APP_IDENTIFIER,
+    username: ENV.fetch("FASTLANE_APPLE_ID", "jushiung@gmail.com"),
+    metadata_path: File.join(REPO_ROOT, "fastlane", "metadata"),
+    screenshots_path: File.join(REPO_ROOT, "fastlane", "screenshots"),
+    app_rating_config_path: File.join(REPO_ROOT, "fastlane", "app_rating_config.json"),
+    app_version: "1.0",
+    automatic_release: false,
+    phased_release: false,
+    force: true,
+    overwrite_screenshots: true,
+    run_precheck_before_submit: true,
+    precheck_default_rule_level: :error,
+    precheck_include_in_app_purchases: true,
+    app_review_information: {
+      first_name: "Yu Shiung",
+      last_name: "Jiang",
+      phone_number: "+886952413678",
+      email_address: "jushiung@gmail.com",
+      notes: File.read(File.join(REPO_ROOT, "fastlane", "metadata", "review_information", "notes.txt"))
+    },
+    submission_information: {
+      add_id_info_serves_ads: false,
+      add_id_info_tracks_action: false,
+      add_id_info_tracks_install: false,
+      content_rights_contains_third_party_content: false,
+      content_rights_has_rights: true,
+      export_compliance_uses_encryption: false,
+      export_compliance_contains_proprietary_cryptography: false,
+      export_compliance_contains_third_party_cryptography: false,
+      export_compliance_is_exempt: false
+    }
+  }
+end
+
+platform :ios do
+  desc "Validate metadata, public pages, IAP definitions, and required screenshots"
+  lane :validate_submission_package do
+    sh("bash", script_path("validate_app_store_package.sh"))
+  end
+
+  desc "Validate everything except screenshots, useful before simulator capture is available"
+  lane :validate_metadata do
+    sh("bash", script_path("validate_app_store_package.sh"), "--allow-missing-screenshots")
+  end
+
+  desc "Capture iPhone 6.9-inch and iPad 13-inch App Store screenshots"
+  lane :capture_app_store_screenshots do
+    sh("bash", script_path("capture_app_store_screenshots.sh"))
+  end
+
+  desc "Build a signed App Store IPA for review"
+  lane :build_for_review do
+    sh("xcodegen", "generate", "--spec", File.join(REPO_ROOT, "project.yml"), "--project", REPO_ROOT, "--project-root", REPO_ROOT)
+    build_app(
+      project: File.join(REPO_ROOT, "MusicTeacherStudio.xcodeproj"),
+      scheme: "MusicTeacherStudio",
+      configuration: "Release",
+      clean: true,
+      export_method: "app-store-connect",
+      export_team_id: TEAM_ID,
+      output_directory: EXPORT_DIR,
+      output_name: "MusicTeacherStudio.ipa",
+      include_symbols: true,
+      include_bitcode: false,
+      xcargs: "DEVELOPMENT_TEAM=#{TEAM_ID} CODE_SIGN_STYLE=Automatic"
+    )
+  end
+
+  desc "One-command local preparation: screenshots, validation, then IPA build"
+  lane :prepare_review do
+    capture_app_store_screenshots
+    validate_submission_package
+    build_for_review
+  end
+
+  desc "Upload metadata and screenshots to App Store Connect without binary"
+  lane :upload_metadata do
+    validate_submission_package
+    ensure_asc_auth!
+    deliver(**deliver_base_options.merge(skip_binary_upload: true, submit_for_review: false))
+  end
+
+  desc "Upload a signed IPA to App Store Connect"
+  lane :upload_build do
+    ensure_asc_auth!
+    ipa = ENV.fetch("IPA_PATH", IPA_PATH)
+    UI.user_error!("Missing IPA at #{ipa}. Run `fastlane ios build_for_review` first.") unless File.exist?(ipa)
+    deliver(**deliver_base_options.merge(ipa: ipa, skip_metadata: true, skip_screenshots: true, submit_for_review: false))
+  end
+
+  desc "Submit the prepared app version for review after metadata, screenshots, IAPs, and build are ready"
+  lane :submit_review do
+    validate_submission_package
+    ensure_asc_auth!
+    options = deliver_base_options.merge(submit_for_review: true)
+    ipa = ENV["IPA_PATH"]
+    options[:ipa] = ipa if ipa.to_s.length.positive? && File.exist?(ipa)
+    deliver(**options)
+  end
+end

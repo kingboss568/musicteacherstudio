@@ -1,0 +1,39 @@
+app_identifier("com.jiang.musicteacherstudio")
+username(ENV.fetch("FASTLANE_APPLE_ID", "jushiung@gmail.com"))
+
+metadata_path("./fastlane/metadata")
+screenshots_path("./fastlane/screenshots")
+app_rating_config_path("./fastlane/app_rating_config.json")
+
+app_version("1.0")
+copyright("2026 Yu Shiung Jiang")
+primary_category("EDUCATION")
+secondary_category("PRODUCTIVITY")
+
+automatic_release(false)
+phased_release(false)
+force(true)
+overwrite_screenshots(true)
+run_precheck_before_submit(true)
+precheck_default_rule_level(:error)
+precheck_include_in_app_purchases(true)
+
+app_review_information(
+  first_name: "Yu Shiung",
+  last_name: "Jiang",
+  phone_number: "+886952413678",
+  email_address: "jushiung@gmail.com",
+  notes: File.read("./fastlane/metadata/review_information/notes.txt")
+)
+
+submission_information({
+  add_id_info_serves_ads: false,
+  add_id_info_tracks_action: false,
+  add_id_info_tracks_install: false,
+  content_rights_contains_third_party_content: false,
+  content_rights_has_rights: true,
+  export_compliance_uses_encryption: false,
+  export_compliance_contains_proprietary_cryptography: false,
+  export_compliance_contains_third_party_cryptography: false,
+  export_compliance_is_exempt: false
+})

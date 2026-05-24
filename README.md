@@ -1,6 +1,7 @@
-# MusicTeacherStudio
+# 樂課管家 · MusicTeacher Studio
 
-私人音樂老師管理 App（iOS / iPadOS、SwiftUI + SwiftData、離線優先）。
+> 30 秒記錄，30 年成長 — 私人音樂老師專屬，離線優先，可上架級設計。
+> iOS 17+ / iPadOS 17+ / SwiftUI + SwiftData + StoreKit 2 + Swift Charts
 
 ## 開啟專案
 

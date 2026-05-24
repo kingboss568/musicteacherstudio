@@ -1,5 +1,17 @@
 # AGENTS.md — MusicTeacherStudio
 
+## 進入本專案後先讀
+
+在開始任何開發、上架、截圖、文件或 App Store Connect 工作前，先回到工作區根目錄讀完下列永久列管資料：
+
+1. `../../AGENTS.md`
+2. `../../永久列管/README.md`
+3. `../../永久列管/00_總規範/固定規範.md`
+4. `../../永久列管/01_任務登錄/任務總表.md`
+5. `../../永久列管/02_App上架必檢清單/上架必檢模板.md`
+6. `../../永久列管/03_截圖與素材規範/截圖規範.md`
+7. `../../永久列管/04_永久樹索引/永久樹.md`
+
 ## Project
 Offline-first iOS/iPadOS SwiftUI + SwiftData MVP for private music teachers.
 

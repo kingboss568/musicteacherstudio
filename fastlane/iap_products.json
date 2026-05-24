@@ -1,0 +1,43 @@
+{
+  "app_identifier": "com.jiang.musicteacherstudio",
+  "subscription_group": {
+    "reference_name": "Music Teacher Studio Pro",
+    "display_name": "樂課管家 Pro"
+  },
+  "products": [
+    {
+      "product_id": "studio.pro.monthly",
+      "type": "auto_renewable_subscription",
+      "reference_name": "Pro Monthly",
+      "display_name": "Pro 月訂閱",
+      "description": "樂課管家 Pro 月訂閱，含 7 天免費試用。",
+      "duration": "1 month",
+      "introductory_offer": "7 days free trial",
+      "price": "TWD 120"
+    },
+    {
+      "product_id": "studio.pro.yearly",
+      "type": "auto_renewable_subscription",
+      "reference_name": "Pro Yearly",
+      "display_name": "Pro 年訂閱",
+      "description": "樂課管家 Pro 年訂閱，比月訂閱省 31%。",
+      "duration": "1 year",
+      "introductory_offer": null,
+      "price": "TWD 990"
+    },
+    {
+      "product_id": "studio.pro.lifetime",
+      "type": "non_consumable",
+      "reference_name": "Pro Lifetime",
+      "display_name": "樂課管家 Pro 終身版",
+      "description": "一次買斷，永久解鎖樂課管家 Pro 全部功能。",
+      "price": "TWD 2490"
+    }
+  ],
+  "review_requirements": [
+    "Products must be created in App Store Connect with exactly these product IDs.",
+    "All IAPs must be attached to the submitted app version before review.",
+    "The paywall and App Review notes must expose the IAP flow without login.",
+    "Restore purchases must remain visible from Settings and the paywall."
+  ]
+}

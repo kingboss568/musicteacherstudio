@@ -15,6 +15,8 @@ struct DashboardView: View {
     @State private var showPaywall = false
 
     private let analytics = AnalyticsService()
+    private let streakService = StreakService()
+    private let reminderService = SmartRemindersService()
 
     private var daysBack: Int {
         store.hasEntitlement(.advancedAnalytics) ? 30 : FreeLimits.analyticsDaysBack
@@ -30,7 +32,9 @@ struct DashboardView: View {
             VStack(spacing: Brand.Space.l) {
                 heroCard
                 kpiRow
+                remindersCard
                 todayCard
+                streakCard
                 trendCard
                 shortcutsCard
             }
@@ -58,6 +62,24 @@ struct DashboardView: View {
         .sheet(isPresented: $showStudentEditor) { NavigationStack { StudentEditorView() } }
         .sheet(isPresented: $showLessonEditor) { NavigationStack { LessonEditorView() } }
         .sheet(isPresented: $showPaywall) { PaywallView() }
+    }
+
+    // MARK: - Reminders + Streak
+
+    private var remindersCard: some View {
+        RemindersCard(
+            reminders: reminderService.generate(
+                students: students, lessons: lessons, assignments: assignments
+            )
+        )
+    }
+
+    private var streakCard: some View {
+        StreakCard(
+            result: streakService.compute(lessons: lessons),
+            isPro: store.isPro,
+            onTapUpgrade: { showPaywall = true }
+        )
     }
 
     // MARK: - Hero
