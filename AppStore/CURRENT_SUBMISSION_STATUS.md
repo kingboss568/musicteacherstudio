@@ -30,12 +30,13 @@ Date: 2026-05-24
   `MusicTeacherStudioTests/ScreenshotLaunchRouteTests`, 3 tests, 0 failures.
 - App Store Connect API key authentication is working with key `WZBYHD6QVD` and issuer `69a6de78-ba5a-47e3-e053-5b8c7c11a4d1`.
 - `fastlane ios upload_metadata` completed successfully after uploading metadata, App Review information, age rating, and screenshots.
-- Build `242245cb-0ab1-427c-a191-1aa4754d9d4a` is `VALID`, App Store eligible, and attached to iOS App version `1.0`.
+- Build `acf067f0-a483-498e-94fe-017c3ff4de45` (`1.0`, build `2`) is `VALID`, App Store eligible, and attached to iOS App version `1.0`.
 
 ## Verification Evidence
 
 - IPA: `Build/Export/MusicTeacherStudio.ipa`
-- IPA SHA-256: `55caee4787741f7f9208ef6a8c75ab0c48018cdf8bc113224bc1eba1fa2cec3f`
+- IPA SHA-256: `3f5110929ed0ba3434c7af38e63af0915110a1c02538ddb659052b019300dde9`
+- IPA bundle version: `1.0` (`CFBundleVersion` `2`)
 - dSYM: `Build/Export/MusicTeacherStudio.app.dSYM.zip`
 - Screenshot sizes:
   - iPhone 6.9 inch: `1320x2868`
@@ -44,7 +45,8 @@ Date: 2026-05-24
   - App Store version id: `b9413198-40a8-4719-8466-7c17f07fc422`
   - State: `PREPARE_FOR_SUBMISSION`
   - Release type: manual
-  - Attached build id: `242245cb-0ab1-427c-a191-1aa4754d9d4a`
+  - Attached build id: `acf067f0-a483-498e-94fe-017c3ff4de45`
+  - Attached build number: `2`
   - Build processing state: `VALID`
 
 ## Blockers Before Actual Submission
