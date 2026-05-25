@@ -71,6 +71,14 @@ Upload metadata and screenshots to App Store Connect without binary
 
 Upload a signed IPA to App Store Connect
 
+### ios setup_iap_products
+
+```sh
+[bundle exec] fastlane ios setup_iap_products
+```
+
+Create or repair App Store Connect IAP product records
+
 ### ios submit_review
 
 ```sh

@@ -17,6 +17,8 @@ Date: 2026-05-24
   - `https://kingboss568.github.io/musicteacherstudio/support`
   - `https://kingboss568.github.io/musicteacherstudio/terms`
 - IAP product definitions are staged in `fastlane/iap_products.json` and `AppStore/IAP_PRODUCTS.md`.
+- App Store Connect IAP records were created with `fastlane ios setup_iap_products` / `Scripts/asc/setup_iap_products.rb`:
+  `studio.pro.monthly`, `studio.pro.yearly`, and `studio.pro.lifetime`.
 - App Privacy answers are documented as `Data Not Collected`.
 - App Review risk checklist is documented.
 - iPhone 6.9-inch screenshots were captured to `fastlane/screenshots/zh-Hant/iphone69_*.png`.
@@ -51,9 +53,9 @@ Date: 2026-05-24
 
 ## Blockers Before Actual Submission
 
-1. IAPs must still be created or verified in App Store Connect and attached to app version `1.0`:
+1. IAPs exist in App Store Connect but are still `MISSING_METADATA`:
    `studio.pro.monthly`, `studio.pro.yearly`, `studio.pro.lifetime`.
-   App Store Connect API currently reports `0` in-app purchases for this app.
+   App Store Connect still needs final price/availability/review-screenshot metadata before these products can be attached to the app version and submitted.
 
 2. App Store Connect version fields still require final UI verification in Comet before pressing Submit for Review:
    app privacy page, IAP attachment, and final review-submission readiness.
@@ -64,6 +66,11 @@ Date: 2026-05-24
 
 ```sh
 fastlane ios validate_submission_package
+env -u APP_STORE_CONNECT_API_KEY_PATH \
+  ASC_API_KEY_PATH=/Users/jushiung/Downloads/AuthKey_WZBYHD6QVD.p8 \
+  APP_STORE_CONNECT_KEY_ID=WZBYHD6QVD \
+  APP_STORE_CONNECT_ISSUER_ID=69a6de78-ba5a-47e3-e053-5b8c7c11a4d1 \
+  fastlane ios setup_iap_products
 env -u APP_STORE_CONNECT_API_KEY_PATH \
   ASC_API_KEY_PATH=/Users/jushiung/Downloads/AuthKey_WZBYHD6QVD.p8 \
   APP_STORE_CONNECT_KEY_ID=WZBYHD6QVD \

@@ -165,6 +165,12 @@ platform :ios do
     deliver(**deliver_base_options.merge(asc_api_key_options).merge(ipa: ipa, skip_metadata: true, skip_screenshots: true, submit_for_review: false))
   end
 
+  desc "Create or repair App Store Connect IAP product records"
+  lane :setup_iap_products do
+    ensure_asc_auth!
+    sh("ruby", File.join(REPO_ROOT, "Scripts", "asc", "setup_iap_products.rb"))
+  end
+
   desc "Submit the prepared app version for review after metadata, screenshots, IAPs, and build are ready"
   lane :submit_review do
     validate_submission_package

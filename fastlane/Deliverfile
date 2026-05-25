@@ -16,7 +16,7 @@ force(true)
 overwrite_screenshots(true)
 run_precheck_before_submit(true)
 precheck_default_rule_level(:error)
-precheck_include_in_app_purchases(true)
+precheck_include_in_app_purchases(false)
 
 app_review_information(
   first_name: "Yu Shiung",

@@ -17,6 +17,14 @@ App Store Connect must contain the same products as the local StoreKit configura
 | `studio.pro.yearly` | Auto-renewable subscription | Pro Yearly | Pro 年訂閱 | TWD 990 | Ready to Submit |
 | `studio.pro.lifetime` | Non-consumable | Pro Lifetime | 樂課管家 Pro 終身版 | TWD 2490 | Ready to Submit |
 
+Current App Store Connect IDs:
+
+| Product ID | ASC ID | Current ASC state |
+|---|---:|---|
+| `studio.pro.monthly` | `6772977179` | `MISSING_METADATA` |
+| `studio.pro.yearly` | `6772977265` | `MISSING_METADATA` |
+| `studio.pro.lifetime` | `6772977405` | `MISSING_METADATA` |
+
 Monthly includes a 7-day free trial. Yearly has no introductory offer. Lifetime is one-time purchase and must not be placed inside the subscription group.
 
 ## Review Checks
